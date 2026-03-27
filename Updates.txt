@@ -1,0 +1,252 @@
+﻿--- Default.aspx
+
+	-- around line 68
+
+		<tr>
+		<td><a href='GetArtist/2023'>View 2023 Titles</a></td>
+		<td>View all albums bought in 2023.</td>
+		</tr>
+
+	-- Remove this at line 88
+
+		<tr>
+		<td><a href='GetArtist/2017'>View 2017 Titles</a> 
+		</td>
+		<td>View all albums bought in 2017.</td>
+		</tr>
+
+-- Browse.aspx.cs
+
+	-- Add this after - case "blurays":  
+
+		case "2023":
+		    pageHeaderLabel.Text = "All Records bought in 2023";
+		    break;
+
+	-- Remove this at line 102
+
+		case "2017":
+		    pageHeaderLabel.Text = "All Records bought in 2017";
+		    break;
+
+-- Update SQL command - up_RecordSelectShowNew
+
+-- Add this at line 80
+ELSE IF @show = '2023'
+BEGIN
+    -- get records
+	SELECT
+		'<a href="../GetArtist/aid'+Convert(varchar(10), r.ArtistId)+'">'+a.name+'</a>' AS artistName, r.RecordId, r.ArtistId, 
+		'<a href="../GetRecord/'+Convert(varchar(10), r.RecordId)+'">'+r.Name+'</a>' AS Name, r.Field, r.Recorded,
+		r.Label, r.Pressing, r.Rating, r.Discs, r.Media, r.Bought,
+		r.Cost, r.CoverName, r.Review, r.FreeDBID
+	FROM Record AS r
+	INNER JOIN Artist AS a ON
+		a.ArtistId = r.ArtistId
+	WHERE r.bought > Convert(datetime,'31/12/2022', 103) AND r.bought < Convert(datetime, '01/01/2024', 103)
+	ORDER BY r.bought DESC
+END
+
+-- Remove this at line 150
+ELSE IF @show = '2017'
+BEGIN
+    -- get records
+	SELECT
+		'<a href="../GetArtist/aid'+Convert(varchar(10), r.ArtistId)+'">'+a.name+'</a>' AS artistName, r.RecordId, r.ArtistId, '<a href="../GetRecord/'+Convert(varchar(10), r.RecordId)+'">'+r.Name+'</a>' AS Name, r.Field, r.Recorded,
+		r.Label, r.Pressing, r.Rating, r.Discs, r.Media, r.Bought,
+		r.Cost, r.CoverName, r.Review, r.FreeDBID
+	FROM Record AS r
+	INNER JOIN Artist AS a ON
+		a.ArtistId = r.ArtistId
+	WHERE r.bought > Convert(datetime,'31/12/2016', 103) AND r.bought < Convert(datetime, '01/01/2018', 103)
+	ORDER BY r.bought DESC
+END
+
+
+--- Add a fake record with a recorded and bought date in 2023
+
+	-- Now test that you can see the records that you added for 2023
+
+	http://localhost:21040/GetArtist/2023
+
+	-- Now test the Year recorded page
+
+	http://localhost:21040/Recorded
+
+
+--- Statistics.aspx
+
+	-- Now add statistics for 2023 - add after </thead> at line 28
+
+		<tr>
+		<td><strong>Number of Discs bought in 2023</strong></td>
+		<td><asp:Label runat="server" ID="disks2023Label"></asp:Label></td>
+		</tr>
+		<tr>
+		<td><strong>Total Amount spent on Discs in 2023</strong></td>
+		<td><asp:Label runat="server" ID="cost2023Label"></asp:Label></td>
+		</tr>
+		<tr>
+		<td><strong>Average cost of a Disc in 2023</strong></td>
+		<td><asp:Label runat="server" ID="av2023Label"></asp:Label></td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		</tr>
+		<tr>
+
+	-- now remove statistics for 2016 - line
+
+		<tr>
+		<td><strong>Number of Discs bought in 2017</strong></td>
+		<td><asp:Label runat="server" ID="disks2017Label"></asp:Label></td>
+		</tr>
+		<tr>
+		<td><strong>Total Amount spent on Discs in 2017</strong></td>
+		<td><asp:Label runat="server" ID="cost2017Label"></asp:Label></td>
+		</tr>
+		<tr>
+		<td><strong>Average cost of a Disc in 2017</strong></td>
+		<td><asp:Label runat="server" ID="av2017Label"></asp:Label></td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		</tr>                      
+
+--- Satistics.aspx.cs
+	
+	-- Insert at line 34
+
+        disks2023Label.Text = statistics.Disks2023.ToString(CultureInfo.InvariantCulture);
+        cost2023Label.Text = statistics.Cost2023.ToString("C");
+        av2023Label.Text = statistics.Av2023.ToString("C");
+
+	-- Remove at line 49
+	
+		disks2017Label.Text = statistics.Disks2017.ToString(CultureInfo.InvariantCulture);
+		cost2017Label.Text = statistics.Cost2017.ToString("C");
+		av2017Label.Text = statistics.Av2017.ToString("C");
+ 
+ --- Statistic.cs (RedcordDAL)
+
+	-- Insert at line 203
+	
+	        /// <summary>
+	        /// Gets or sets the Disks2023
+	        /// </summary>
+	        public int Disks2023 { get; set; }
+	
+	        /// <summary>
+	        /// Gets or sets the Cost2023
+	        /// </summary>
+	        public decimal Cost2023 { get; set; }
+	
+	        /// <summary>
+	        /// Gets or sets the Av2023
+	        /// </summary>
+	        public decimal Av2023 { get; set; }
+		
+	-- remove at line 98
+
+			/// <summary>
+			/// Gets or sets the Disks2017
+			/// </summary>
+			public int Disks2017 { get; set; }
+
+			/// <summary>
+			/// Gets or sets the Cost2017
+			/// </summary>
+			public decimal Cost2017 { get; set; }
+
+			/// <summary>
+			/// Gets or sets the Av2017
+			/// </summary>
+			public decimal Av2017 { get; set; }
+
+--- SatisticData.cs (RecordDAL)
+
+	-- Insert at line 569
+
+            var disks2023 = 0;
+            using (var cn = new SqlConnection(AppSettings.Instance.ConnectString))
+            {
+                // query for Number of CD's bought in 2023
+                var getValue = new SqlCommand("select sum(discs) from record where bought > '31-Dec-2022' and bought < '01-Jan-2024'", cn);
+
+                cn.Open();
+                if (getValue.ExecuteScalar() != DBNull.Value)
+                {
+                    disks2023 = int.Parse(getValue.ExecuteScalar().ToString());
+                }
+
+                cn.Close();
+                statistics.Disks2023 = disks2023;
+            }
+
+            using (var cn = new SqlConnection(AppSettings.Instance.ConnectString))
+            {
+                // query for amount spent on CD's in 2023
+                var cost2023 = 0.0m;
+                var getValue = new SqlCommand("select sum(cost) from record where bought > '31-Dec-2022' and bought < '01-Jan-2024'", cn);
+
+                cn.Open();
+                if (getValue.ExecuteScalar() != DBNull.Value)
+                {
+                    cost2023 = decimal.Parse(getValue.ExecuteScalar().ToString());
+                }
+
+                // this is to stop a divide by zero error if nothing has been bought
+                if (cost2023 > 1)
+                {
+                    statistics.Cost2023 = cost2023;
+                    var av2023 = cost2023 / disks2023;
+                    statistics.Av2023 = av2023;
+                }
+                else
+                {
+                    statistics.Cost2023 = 0.00m;
+                    statistics.Av2023 = 0.00m;
+                }
+
+                cn.Close();
+            }
+
+
+	-- remove at line 297
+
+            var disks2017 = 0;
+            using (var cn = new SqlConnection(AppSettings.Instance.ConnectString))
+            {
+                // query for Number of CD's bought in 2017
+                var getValue = new SqlCommand("select sum(discs) from record where bought > '31-Dec-2016' and bought < '01-Jan-2018'", cn);
+
+                cn.Open();
+                if (getValue.ExecuteScalar() != DBNull.Value)
+                {
+                    disks2017 = int.Parse(getValue.ExecuteScalar().ToString());
+                }
+
+                cn.Close();
+                statistics.Disks2017 = disks2017;
+            }
+
+            var cost2017 = 0.0m;
+            using (var cn = new SqlConnection(AppSettings.Instance.ConnectString))
+            {
+                // query for amount spent on CD's in 2017
+                var getValue = new SqlCommand("select sum(cost) from record where bought > '31-Dec-2016' and bought < '01-Jan-2018'", cn);
+
+                cn.Open();
+                if (getValue.ExecuteScalar() != DBNull.Value)
+                {
+                    cost2017 = decimal.Parse(getValue.ExecuteScalar().ToString());
+                }
+
+                cn.Close();
+                statistics.Cost2017 = cost2017;
+            }
+
+            var av2017 = cost2017 / disks2017;
+            statistics.Av2017 = av2017;
