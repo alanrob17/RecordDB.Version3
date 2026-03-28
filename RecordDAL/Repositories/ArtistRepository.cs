@@ -77,9 +77,10 @@ namespace RecordDAL.Repositories
         public async Task<int> InsertAsync(Artist artist)
         {
                 var artistId = -1; // 0 is used for record is already in the db.
+                string sproc = "adm_ArtistInsert";
+
                 try
                 {
-                    string sproc = "adm_ArtistInsert";
                     var parameters = new DynamicParameters();
                     parameters.Add("@FirstName", artist.FirstName);
                     parameters.Add("@LastName", artist.LastName);
@@ -200,6 +201,29 @@ namespace RecordDAL.Repositories
             {
                 return;
             }
+        }
+
+        public async Task<Artist> GetArtistByRecordIdAsync(int recordId)
+        {
+            var sproc = "up_ArtistSelectByRecordId";
+            var parameter = new DynamicParameters();
+            parameter.Add("@RecordId", recordId);
+
+            Artist artist = await _db.GetDataFirstOrDefault<Artist, dynamic>(sproc, parameter);
+
+            return artist ?? null;
+        }
+
+        public async Task<string> GetBiographyAsync(int recordId)
+        {
+            var sproc = "up_getBiography";
+
+            var parameter = new DynamicParameters();
+            parameter.Add("@RecordId", recordId);
+
+            string biography = await _db.GetText<dynamic>(sproc, parameter);
+
+            return biography;
         }
 
     }

@@ -21,5 +21,7 @@ namespace RecordDAL.Repositories
         Task<int> GetArtistIdAsync(string firstName, string lastName);
         Task<int> GetArtistIdAsync(int recordId);
         Task DeleteAsync(int artistId);
+        Task<Artist> GetArtistByRecordIdAsync(int recordId);
+        Task<string> GetBiographyAsync(int recordId);
     }
 }
