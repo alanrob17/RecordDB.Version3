@@ -15,23 +15,8 @@ namespace RecordDB
     {
         public void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                RegisterAsyncTask(new PageAsyncTask(LoadDataAsync));
-            }
-
-        }
-
-        private async Task LoadDataAsync()
-        {
-            var db = new DataAccess();
-            var repo = new ArtistRepository(db);
-            var artists = await repo.GetArtists();
-
-            foreach (var artist in artists)
-            {
-                messageLabel.Text += $"<p>{artist.Name}</p>";    
-            }
+            var dtnow = DateTime.Now;
+            dateLabel.Text = dtnow.ToLongDateString();
         }
     }
 }
