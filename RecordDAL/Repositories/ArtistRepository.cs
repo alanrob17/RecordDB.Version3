@@ -226,5 +226,16 @@ namespace RecordDAL.Repositories
             return biography;
         }
 
+        public string GetBiography(int recordId)
+        {
+            var sproc = "up_getBiography";
+
+            var parameter = new DynamicParameters();
+            parameter.Add("@RecordId", recordId);
+
+            string biography = _db.GetTextField<dynamic>(sproc, parameter);
+
+            return biography;
+        }
     }
 }

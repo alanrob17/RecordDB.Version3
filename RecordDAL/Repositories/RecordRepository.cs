@@ -21,6 +21,9 @@ namespace RecordDAL.Repositories
     {
         private readonly IDataAccess _db;
 
+        // Parameterless ctor required by ObjectDataSource
+        public RecordRepository() : this(new DataAccess()) { }
+
         public RecordRepository(IDataAccess db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
@@ -79,7 +82,7 @@ namespace RecordDAL.Repositories
             return records.ToList();
         }
 
-        public async Task<List<Record>> Select(string show)
+        public List<Record> Select(string show)
         {
             if (show == null)
             {
@@ -91,9 +94,21 @@ namespace RecordDAL.Repositories
             var parameter = new DynamicParameters();
             parameter.Add("@Show", show);
 
-            var records = await _db.GetData<Record, dynamic>(sproc, parameter);
+            IEnumerable<Record> records = _db.GetBrowseData<Record, dynamic>(sproc, parameter);
 
             return records.ToList();
+        }
+
+        public Record Select(int recordId)
+        {
+            var sproc = "up_RecordSelectById";
+
+            var parameter = new DynamicParameters();
+            parameter.Add("@RecordId", recordId);
+
+            Record record = _db.GetFirstOrDefault<Record, dynamic>(sproc, parameter);
+
+            return record;
         }
 
         public async Task<List<Record>> SelectArtistRecordsAsync(int artistId)
@@ -139,7 +154,7 @@ namespace RecordDAL.Repositories
             return records.ToList();
         }
 
-        public string ToShortDate(object bought)
+        public static string ToShortDate(object bought)
         {
             var shortDate = "unk";
 

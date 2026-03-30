@@ -185,7 +185,7 @@ namespace RecordTest
         private static void ToShortDate()
         {
             var dateStr = "28-12-2015"; 
-            var myDate = _rr.ToShortDate(dateStr);
+            var myDate = RecordDAL.Extensions.DateTimeExtensions.ToShortDate(dateStr);
 
             Console.WriteLine(myDate);
         }
@@ -234,7 +234,7 @@ namespace RecordTest
         {
             var show = "r1974";
 
-            var records = await _rr.Select(show);
+            var records = _rr.Select(show);
 
             foreach (var record in records)
             {

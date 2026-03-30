@@ -13,11 +13,10 @@ namespace RecordDAL.Repositories
         Task<string> CountDiscsAsync(string show);
         Task<string> GetArtistNumberOfRecordsAsync(int artistId);
         Task<List<Record>> SelectAsync();
-        Task<List<Record>> Select(string show);
+        List<Record> Select(string show);
         Task<List<Record>> SelectArtistRecordsAsync(int artistId);
         Task<List<Record>> SelectRecordReviewsAsync();
         Task<string> GetRecordedYearNumberAsync(int year);
-        string ToShortDate(object bought);
         Task<List<Total>> GetTotalCostsAsync();
         Task<int> InsertAsync(Record record);
 

@@ -12,6 +12,14 @@ namespace RecordDB
         // For more information on Bundling, visit https://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/dropdowns.css",
+                "~/Content/Site.css",
+                "~/Content/Styles.css",
+                "~/Content/PagerStyle.css"
+            ));
+
             RegisterJQueryScriptManager();
 
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
@@ -23,6 +31,10 @@ namespace RecordDB
                             "~/Scripts/WebForms/DetailsView.js",
                             "~/Scripts/WebForms/TreeView.js",
                             "~/Scripts/WebForms/WebParts.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/recorddb").Include(
+                "~/Scripts/GetRecord.js",
+                "~/Scripts/RecordDB.js"));
 
             // Order is very important for these files to work, they have explicit dependencies
             bundles.Add(new ScriptBundle("~/bundles/MsAjaxJs").Include(

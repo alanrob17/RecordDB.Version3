@@ -51,21 +51,21 @@
                         <li class="nav-item dropdown rounded-3">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Maintenance</a>
                             <ul class="dropdown-menu rounded-3 mx-0 border-0 shadow w-140px">
-                                <li><a class="dropdown-item" href="~/AddArtist"><span class="d-inline-block bg-success rounded-circle p-1"></span> Add New Artist</a></li>
-                                <li><a class="dropdown-item" href="~/EditArtist"><span class="d-inline-block bg-warning rounded-circle p-1"></span> Edit Artist</a></li>
-                                <li><a class="dropdown-item" href="~/DeleteArtist"><span class="d-inline-block bg-danger rounded-circle p-1"></span> Delete Artist</a></li>
+                                <li><a class="dropdown-item" href="/AddArtist"><span class="d-inline-block bg-success rounded-circle p-1"></span>&nbsp;&nbsp;Add New Artist</a></li>
+                                <li><a class="dropdown-item" href="/EditArtist"><span class="d-inline-block bg-warning rounded-circle p-1"></span>&nbsp;&nbsp;Edit Artist</a></li>
+                                <li><a class="dropdown-item" href="/DeleteArtist"><span class="d-inline-block bg-danger rounded-circle p-1"></span>&nbsp;&nbsp;Delete Artist</a></li>
                                 <li><hr class="dropdown-divider"/></li>
-                                <li><a class="dropdown-item" href="~/AddRecord"><span class="d-inline-block bg-success rounded-circle p-1"></span> Add New Record</a></li>
-                                <li><a class="dropdown-item" href="~/EditRecord"><span class="d-inline-block bg-warning rounded-circle p-1"></span> Edit Record</a></li>
-                                <li><a class="dropdown-item" href="~/DeleteRecord"><span class="d-inline-block bg-danger rounded-circle p-1"></span> Delete Record</a></li>
+                                <li><a class="dropdown-item" href="/AddRecord"><span class="d-inline-block bg-success rounded-circle p-1"></span>&nbsp;&nbsp;Add New Record</a></li>
+                                <li><a class="dropdown-item" href="/EditRecord"><span class="d-inline-block bg-warning rounded-circle p-1"></span>&nbsp;&nbsp;Edit Record</a></li>
+                                <li><a class="dropdown-item" href="/DeleteRecord"><span class="d-inline-block bg-danger rounded-circle p-1"></span>&nbsp;&nbsp;Delete Record</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown rounded-3">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Statistics</a>
                             <ul class="dropdown-menu rounded-3 mx-0 border-0 shadow w-140px">
-                                <li><a class="dropdown-item" href="~/TotalCosts"><span class="d-inline-block bg-warning rounded-circle p-1"></span> Total Artist Cost</a></li>
+                                <li><a class="dropdown-item" href="/TotalCosts"><span class="d-inline-block bg-warning rounded-circle p-1"></span>&nbsp;&nbsp;Total Artist Cost</a></li>
                                 <li><hr class="dropdown-divider"/></li>
-                                <li><a class="dropdown-item" href="~/Statistics"><span class="d-inline-block bg-success rounded-circle p-1"></span> Statistics</a></li>
+                                <li><a class="dropdown-item" href="/Statistics"><span class="d-inline-block bg-success rounded-circle p-1"></span>&nbsp;&nbsp;Statistics</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -77,12 +77,13 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Alan Robson</p>
+                <div class="col-xs-10 col-md-6 mx-auto">&copy; <%: DateTime.Now.Year %> - Alan Robson</div>
             </footer>
         </div>
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+        <%: Scripts.Render("~/bundles/recorddb") %>
     </asp:PlaceHolder>
 </body>
 </html>

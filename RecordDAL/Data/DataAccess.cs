@@ -30,12 +30,29 @@ namespace RecordDAL.Data
             }
         }
 
+        // I need this for the Browse page.
+        public IEnumerable<T> GetBrowseData<T, P>(string storedProcedure, P parameters, string connectionId = "default")
+        {
+            using (IDbConnection connection = new SqlConnection(AppSettings.Instance.ConnectString))
+            {
+                return connection.Query<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
+
         // New method for single objects using QueryFirstOrDefaultAsync
         public async Task<T> GetDataFirstOrDefault<T, P>(string storedProcedure, P parameters, string connectionId = "default")
         {
             using (IDbConnection connection = new SqlConnection(AppSettings.Instance.ConnectString))
             {
                 return await connection.QueryFirstOrDefaultAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public T GetFirstOrDefault<T, P>(string storedProcedure, P parameters, string connectionId = "default")
+        {
+            using (IDbConnection connection = new SqlConnection(AppSettings.Instance.ConnectString))
+            {
+                return connection.QueryFirstOrDefault<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -96,5 +113,12 @@ namespace RecordDAL.Data
             return result;
         }
 
+        public string GetTextField<P>(string storedProcedure, P parameters, string connectionId = "default")
+        {
+            IDbConnection connection = new SqlConnection(AppSettings.Instance.ConnectString);
+
+            string result = (string) connection.ExecuteScalar(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            return result;
+        }
     }
 }

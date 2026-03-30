@@ -61,6 +61,7 @@
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\IDataAccess.cs" />
     <Compile Include="DTOs\MissingReviewDto.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Statistic.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Repositories\IArtistRepository.cs" />
     <Compile Include="Repositories\IRecordRepository.cs" />
     <Compile Include="Repositories\RecordRepository.cs" />
+    <Compile Include="Repositories\RepositoryInitialiser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

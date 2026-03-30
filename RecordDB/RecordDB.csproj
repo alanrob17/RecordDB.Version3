@@ -100,6 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AddArtist.aspx" />
+    <Content Include="AddRecord.aspx" />
+    <Content Include="ArtistList.aspx" />
+    <Content Include="Browse.aspx" />
+    <Content Include="CheckRecordReviews.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -124,8 +129,461 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DeleteArtist.aspx" />
+    <Content Include="DeleteRecord.aspx" />
+    <Content Include="EditArtist.aspx" />
+    <Content Include="EditRecord.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\0000115823.jpg" />
+    <Content Include="images\0000286689.jpg" />
+    <Content Include="images\0000736147.jpg" />
+    <Content Include="images\0000833821.jpg" />
+    <Content Include="images\0000850205.jpg" />
+    <Content Include="images\0000869537.jpg" />
+    <Content Include="images\0001013919.jpg" />
+    <Content Include="images\0001047882.jpg" />
+    <Content Include="images\0001336269.jpg" />
+    <Content Include="images\0003566480.jpg" />
+    <Content Include="images\0004284458.jpg" />
+    <Content Include="images\0004412842.jpg" />
+    <Content Include="images\0004412865.jpg" />
+    <Content Include="images\0004597564.jpg" />
+    <Content Include="images\0005053270_002.jpg" />
+    <Content Include="images\200-motels.jpg" />
+    <Content Include="images\abb-at-fillmore-east.jpg" />
+    <Content Include="images\abb-beginnings.jpg" />
+    <Content Include="images\abb-dreams.jpg" />
+    <Content Include="images\abb-eat-a-peach.jpg" />
+    <Content Include="images\abb-enlightened-rogues.jpg" />
+    <Content Include="images\abb-fillmore-west-71.jpg" />
+    <Content Include="images\abb-final-note.jpg" />
+    <Content Include="images\abb-idlewild-south.jpg" />
+    <Content Include="images\abb-pattern-disruptive.jpg" />
+    <Content Include="images\abb-play-all-night.jpg" />
+    <Content Include="images\abb-seven-turns.jpg" />
+    <Content Include="images\abb-the-allman-brothers-band.jpg" />
+    <Content Include="images\abb-win-lose-or-draw.jpg" />
+    <Content Include="images\abb-wipe-the-windows.jpg" />
+    <Content Include="images\al-dimi-Elysium.jpg" />
+    <Content Include="images\al-dimi-midnight-sun.jpg" />
+    <Content Include="images\al-dimi-return.jpg" />
+    <Content Include="images\al-dimi-world-sinfonia.jpg" />
+    <Content Include="images\alan.txt" />
+    <Content Include="images\amy-winehouse-back-to-black.jpg" />
+    <Content Include="images\apostrophe.jpg" />
+    <Content Include="images\as-24-carrots.jpg" />
+    <Content Include="images\as-al-stewart-live.jpg" />
+    <Content Include="images\as-al-stewart-live2.jpg" />
+    <Content Include="images\as-love-chronicles.jpg" />
+    <Content Include="images\as-modern-times.jpg" />
+    <Content Include="images\as-orange.jpg" />
+    <Content Include="images\as-the-bedsitter.jpg" />
+    <Content Include="images\as-time-passages.jpg" />
+    <Content Include="images\as-uncorked.jpg" />
+    <Content Include="images\as-year-of-the-cat.jpg" />
+    <Content Include="images\bc-dancing.jpg" />
+    <Content Include="images\bc-never-seen.jpg" />
+    <Content Include="images\bd-fallen-angels.jpg" />
+    <Content Include="images\bd-rough-and-rowdy.jpg" />
+    <Content Include="images\beatles-white-album.jpg" />
+    <Content Include="images\bf-blind-faith.jpg" />
+    <Content Include="images\bf-blind-faith2.jpg" />
+    <Content Include="images\bj-black-swan.jpg" />
+    <Content Include="images\bj-it-dont-bother-me.jpg" />
+    <Content Include="images\bj-nicola.jpg" />
+    <Content Include="images\bj-simple.jpg" />
+    <Content Include="images\bob-dylan-and-the-band-the-basement-tapes.jpg" />
+    <Content Include="images\bob-dylan-blonde-on-blonde.jpg" />
+    <Content Include="images\bob-dylan-blood-on-the-tracks.jpg" />
+    <Content Include="images\bob-dylan-bringing-it-all-back-home.jpg" />
+    <Content Include="images\bob-dylan-hwy-61-revisited-updated.jpg" />
+    <Content Include="images\bob-dylan-john-wesley-harding.jpg" />
+    <Content Include="images\bob-dylan-the-freewheelin-bob-dylan.jpg" />
+    <Content Include="images\bonnie-raitt-nick-of-time.jpg" />
+    <Content Include="images\boulez.jpg" />
+    <Content Include="images\bruce-springsteen-born-in-the-usa.jpg" />
+    <Content Include="images\bruce-springsteen-born-to-run.jpg" />
+    <Content Include="images\bruce-springsteen-darkness-on-the-edge-of-town.jpg" />
+    <Content Include="images\bruce-springsteen-nebraska.jpg" />
+    <Content Include="images\bruce-springsteen-the-wild-the-innocent-and-the-e-street-shuffle.jpg" />
+    <Content Include="images\c-the-history-of-chain.jpg" />
+    <Content Include="images\c-towards-the-blues.jpg" />
+    <Content Include="images\charles-mingus-mingus-ah-um.jpg" />
+    <Content Include="images\civilization.jpg" />
+    <Content Include="images\clash-london-calling.jpg" />
+    <Content Include="images\coldplay-a-rush-of-blood-to-the-head.jpg" />
+    <Content Include="images\cr-fresh-cream.jpg" />
+    <Content Include="images\cr-goodbye.jpg" />
+    <Content Include="images\cr-wheels-of-fire.jpg" />
+    <Content Include="images\cream-disraeli-gears.jpg" />
+    <Content Include="images\creedence-clearwater-revival-willy-and-the-poor-boys.jpg" />
+    <Content Include="images\csny-deja-vu.jpg" />
+    <Content Include="images\david-bowie-low.jpg" />
+    <Content Include="images\dd-crossroads.jpg" />
+    <Content Include="images\dd-in-concert.jpg" />
+    <Content Include="images\derek-and-the-dominos-layla-and-other-assorted-love-songs.jpg" />
+    <Content Include="images\dire-straits-brothers-in-arms.jpg" />
+    <Content Include="images\dylan-another.jpg" />
+    <Content Include="images\dylan-basement.jpg" />
+    <Content Include="images\dylan-blonde.jpg" />
+    <Content Include="images\dylan-blood.jpg" />
+    <Content Include="images\dylan-bringing.jpg" />
+    <Content Include="images\dylan-christmas.jpg" />
+    <Content Include="images\dylan-desire.jpg" />
+    <Content Include="images\dylan-down.jpg" />
+    <Content Include="images\dylan-dylan.jpg" />
+    <Content Include="images\dylan-dylan73.jpg" />
+    <Content Include="images\dylan-empire.jpg" />
+    <Content Include="images\dylan-fallen.jpg" />
+    <Content Include="images\dylan-free.jpg" />
+    <Content Include="images\dylan-good.jpg" />
+    <Content Include="images\dylan-highway.jpg" />
+    <Content Include="images\dylan-hits.jpg" />
+    <Content Include="images\dylan-infidels.jpg" />
+    <Content Include="images\dylan-john.jpg" />
+    <Content Include="images\dylan-knocked.jpg" />
+    <Content Include="images\dylan-love.jpg" />
+    <Content Include="images\dylan-modern.jpg" />
+    <Content Include="images\dylan-nashville.jpg" />
+    <Content Include="images\dylan-new.jpg" />
+    <Content Include="images\dylan-oh.jpg" />
+    <Content Include="images\dylan-pat.jpg" />
+    <Content Include="images\dylan-planet.jpg" />
+    <Content Include="images\dylan-saved.jpg" />
+    <Content Include="images\dylan-self.jpg" />
+    <Content Include="images\dylan-shadows.jpg" />
+    <Content Include="images\dylan-shot.jpg" />
+    <Content Include="images\dylan-sky.jpg" />
+    <Content Include="images\dylan-slow.jpg" />
+    <Content Include="images\dylan-street.jpg" />
+    <Content Include="images\dylan-tempest.jpg" />
+    <Content Include="images\dylan-timeoutofmind.jpg" />
+    <Content Include="images\dylan-times.jpg" />
+    <Content Include="images\dylan-together.jpg" />
+    <Content Include="images\dylan-Triplicate.jpg" />
+    <Content Include="images\dylan-under.jpg" />
+    <Content Include="images\dylan-world.jpg" />
+    <Content Include="images\eagles-the-eagles.jpg" />
+    <Content Include="images\ec-from-the-cradle.jpg" />
+    <Content Include="images\ec-layla.jpg" />
+    <Content Include="images\ec-money.jpg" />
+    <Content Include="images\ec-old-sock.jpg" />
+    <Content Include="images\ec-one-in-every-crowd.jpg" />
+    <Content Include="images\ec-pilgrim.jpg" />
+    <Content Include="images\ec-rainbow.jpg" />
+    <Content Include="images\ec-the-road-to-escondido.jpg" />
+    <Content Include="images\fillmore-east.jpg" />
+    <Content Include="images\flying-burrito-brothers-the-gilded-palace-of-sin.jpg" />
+    <Content Include="images\freak-out.jpg" />
+    <Content Include="images\george-harrison-all-things-must-pass.jpg" />
+    <Content Include="images\good-singin.jpg" />
+    <Content Include="images\gp01.jpg" />
+    <Content Include="images\gp02.jpg" />
+    <Content Include="images\gp03.jpg" />
+    <Content Include="images\gp04.jpg" />
+    <Content Include="images\gp05.jpg" />
+    <Content Include="images\gp06.jpg" />
+    <Content Include="images\guitar.jpg" />
+    <Content Include="images\herbie-hancock-head-hunters.jpg" />
+    <Content Include="images\hits.jpg" />
+    <Content Include="images\image_008 %282%29.jpg" />
+    <Content Include="images\image_008.jpg" />
+    <Content Include="images\image_011.jpg" />
+    <Content Include="images\image_016.jpg" />
+    <Content Include="images\image_017.jpg" />
+    <Content Include="images\james-taylor-sweet-baby-james.jpg" />
+    <Content Include="images\jazz-from-hell.jpg" />
+    <Content Include="images\jb-apostrophe.jpg" />
+    <Content Include="images\jb-black-coffee.jpg" />
+    <Content Include="images\jb-black-rock.jpg" />
+    <Content Include="images\jb-desperation.jpg" />
+    <Content Include="images\jb-driving.jpg" />
+    <Content Include="images\jb-easy-to-buy.jpg" />
+    <Content Include="images\jb-like-that.jpg" />
+    <Content Include="images\jb-live-at-the-milkyway.jpg" />
+    <Content Include="images\jb-new-day.jpg" />
+    <Content Include="images\jb-shades.jpg" />
+    <Content Include="images\jb-shadows-in-the-air.jpg" />
+    <Content Include="images\jb-songs-for-a-tailor.jpg" />
+    <Content Include="images\jb-time-clocks.jpg" />
+    <Content Include="images\jimi-hendrix-are-you-experienced.jpg" />
+    <Content Include="images\jimi-hendrix-axis-bold-as-love.jpg" />
+    <Content Include="images\jimi-hendrix-electric-ladyland.jpg" />
+    <Content Include="images\jjw-jerry-jeff.jpg" />
+    <Content Include="images\jjw-mr-bojangles.jpg" />
+    <Content Include="images\jjw-viva-luckenbach.jpg" />
+    <Content Include="images\jjw-viva.jpg" />
+    <Content Include="images\jm-a-special-life.jpg" />
+    <Content Include="images\jm-along-for-the-ride.jpg" />
+    <Content Include="images\jm-barewires.jpg" />
+    <Content Include="images\jm-blues-alone.jpg" />
+    <Content Include="images\jm-bluesbreakers.jpg" />
+    <Content Include="images\jm-diary-of-a-band.jpg" />
+    <Content Include="images\jm-empty-rooms.jpg" />
+    <Content Include="images\jm-first-generation.jpg" />
+    <Content Include="images\jm-john-mayall.jpg" />
+    <Content Include="images\jm-latest-edition.jpg" />
+    <Content Include="images\jm-package.jpg" />
+    <Content Include="images\jm-padlock.jpg" />
+    <Content Include="images\jm-return-of-the-bluesbreakers.jpg" />
+    <Content Include="images\jm-road-dog.jpg" />
+    <Content Include="images\jm-the-sun-is-shining.jpg" />
+    <Content Include="images\jm-turning-point.jpg" />
+    <Content Include="images\jm-uda-union.jpg" />
+    <Content Include="images\joes-garage.jpg" />
+    <Content Include="images\john-coltrane-a-love-supreme.jpg" />
+    <Content Include="images\john-coltrane-giant-steps.jpg" />
+    <Content Include="images\john-mayer-continuum-x.jpg" />
+    <Content Include="images\john-prine-john-prine.jpg" />
+    <Content Include="images\joni-mitchell-blue.jpg" />
+    <Content Include="images\joni-mitchell-court-and-spark.jpg" />
+    <Content Include="images\joni-mitchell-hejira.jpg" />
+    <Content Include="images\joni-mitchell-hissing-of-summer-lawns.jpg" />
+    <Content Include="images\led-zeppelin-houses-of-the-holy.jpg" />
+    <Content Include="images\led-zeppelin-ii.jpg" />
+    <Content Include="images\led-zeppelin-iv.jpg" />
+    <Content Include="images\led-zeppelin-led-zeppelin.jpg" />
+    <Content Include="images\led-zeppelin-physical-graffiti.jpg" />
+    <Content Include="images\leonard-cohen-songs-of-leonard-cohen.jpg" />
+    <Content Include="images\lf-feats-dont-fail-me-now.jpg" />
+    <Content Include="images\lf-let-it-roll.jpg" />
+    <Content Include="images\lf-rooster-rag.jpg" />
+    <Content Include="images\lf-sailin-shoes.jpg" />
+    <Content Include="images\lou-reed-transformer.jpg" />
+    <Content Include="images\lucinda-williams-car-wheels-on-a-gravel-road.jpg" />
+    <Content Include="images\lumpy-gravy.jpg" />
+    <Content Include="images\lz-celebration-day.jpg" />
+    <Content Include="images\lz-houses-of-the-holy.jpg" />
+    <Content Include="images\lz-in-through-the-out-door.jpg" />
+    <Content Include="images\lz-little-games.jpg" />
+    <Content Include="images\lz-lz-iii.jpg" />
+    <Content Include="images\lz-lz.jpg" />
+    <Content Include="images\lz-mothership.jpg" />
+    <Content Include="images\lz-no-quarter.jpg" />
+    <Content Include="images\lz-presence.jpg" />
+    <Content Include="images\lz-the-complete-bbc-sessions.jpg" />
+    <Content Include="images\lz-zooma.jpg" />
+    <Content Include="images\mc-battle.jpg" />
+    <Content Include="images\mc-martin-carthy.jpg" />
+    <Content Include="images\mc-skin-bone.jpg" />
+    <Content Include="images\mc-wednesday.jpg" />
+    <Content Include="images\md-ascenseur.jpg" />
+    <Content Include="images\md-at-fillmore.jpg" />
+    <Content Include="images\md-aura.jpg" />
+    <Content Include="images\md-birth-of-cool.jpg" />
+    <Content Include="images\md-esp.jpg" />
+    <Content Include="images\md-everything.jpg" />
+    <Content Include="images\md-gil.jpg" />
+    <Content Include="images\md-miles.jpg" />
+    <Content Include="images\md-round-midnight.jpg" />
+    <Content Include="images\md-someday-my-prince.jpg" />
+    <Content Include="images\md-we-want-miles.jpg" />
+    <Content Include="images\MI0000138934.jpg" />
+    <Content Include="images\MI0000692793.jpg" />
+    <Content Include="images\MI0000692914.jpg" />
+    <Content Include="images\MI0000693010.jpg" />
+    <Content Include="images\MI0000704619.jpg" />
+    <Content Include="images\MI0001462461.jpg" />
+    <Content Include="images\MI0001512636.jpg" />
+    <Content Include="images\MI0001959588.jpg" />
+    <Content Include="images\MI0002037818.jpg" />
+    <Content Include="images\MI0002152702.jpg" />
+    <Content Include="images\MI0002204879.jpg" />
+    <Content Include="images\MI0002208215.jpg" />
+    <Content Include="images\MI0002243730.jpg" />
+    <Content Include="images\MI0002309159.jpg" />
+    <Content Include="images\MI0002327809.jpg" />
+    <Content Include="images\MI0002424512.jpg" />
+    <Content Include="images\MI0002523555.jpg" />
+    <Content Include="images\MI0002525391.jpg" />
+    <Content Include="images\MI0002539001.jpg" />
+    <Content Include="images\MI0002754894.jpg" />
+    <Content Include="images\MI0003399814.jpg" />
+    <Content Include="images\MI0003866624.jpg" />
+    <Content Include="images\miles-davis-bitches-brew.jpg" />
+    <Content Include="images\miles-davis-kind-of-blue.jpg" />
+    <Content Include="images\miles-lovesongs.jpg" />
+    <Content Include="images\miles-tutu.jpg" />
+    <Content Include="images\neil-young-after-the-gold-rush.jpg" />
+    <Content Include="images\neil-young-everybody-knows-this-is-nowhere.jpg" />
+    <Content Include="images\neil-young-harvest.jpg" />
+    <Content Include="images\neil-young-on-the-beach.jpg" />
+    <Content Include="images\neil-young-rust-never-sleeps.jpg" />
+    <Content Include="images\neil-young-tonights-the-night.jpg" />
+    <Content Include="images\nick-drake-pink-moon.jpg" />
+    <Content Include="images\nirvana-mtv-unplugged.jpg" />
+    <Content Include="images\ny-003.jpg" />
+    <Content Include="images\ny-006.jpg" />
+    <Content Include="images\ny-007.jpg" />
+    <Content Include="images\ny-008.jpg" />
+    <Content Include="images\ny-009.jpg" />
+    <Content Include="images\ny-010.jpg" />
+    <Content Include="images\ny-013.jpg" />
+    <Content Include="images\ny-014.jpg" />
+    <Content Include="images\ny-016.jpg" />
+    <Content Include="images\ny-018.jpg" />
+    <Content Include="images\ny-019.jpg" />
+    <Content Include="images\ny-020.jpg" />
+    <Content Include="images\ny-021.jpg" />
+    <Content Include="images\ny-023.jpg" />
+    <Content Include="images\ny-mon.jpg" />
+    <Content Include="images\over-nite-sensation.jpg" />
+    <Content Include="images\paul-simon-graceland.jpg" />
+    <Content Include="images\paul-simon-paul-simon.jpg" />
+    <Content Include="images\pearl-jam-ten.jpg" />
+    <Content Include="images\peter-gabriel-so.jpg" />
+    <Content Include="images\pf-a-saucerful-of-secrets.jpg" />
+    <Content Include="images\pf-animals.jpg" />
+    <Content Include="images\pf-atom-heart-mother.jpg" />
+    <Content Include="images\pf-creation.jpg" />
+    <Content Include="images\pf-dark-side-of-the-moon.jpg" />
+    <Content Include="images\pf-on-an-island.jpg" />
+    <Content Include="images\pf-piper-at-the-gates-of-dawn.jpg" />
+    <Content Include="images\pf-the-final-cut.jpg" />
+    <Content Include="images\pg-a-version-of-now.jpg" />
+    <Content Include="images\pg-birdy.jpg" />
+    <Content Include="images\pg-passion.jpg" />
+    <Content Include="images\pg-secret-world.jpg" />
+    <Content Include="images\pg-security.jpg" />
+    <Content Include="images\pg-the-true-north.jpg" />
+    <Content Include="images\pg-up.jpg" />
+    <Content Include="images\pilatus.jpg" />
+    <Content Include="images\pilatusb.jpg" />
+    <Content Include="images\pink-floyd-dark-side-of-the-moon.jpg" />
+    <Content Include="images\pink-floyd-piper-at-the-gates-of-dawn.jpg" />
+    <Content Include="images\pink-floyd-the-wall.jpg" />
+    <Content Include="images\pink-floyd-wish-you-were-here.jpg" />
+    <Content Include="images\pretties-for-you.jpg" />
+    <Content Include="images\prevention.jpg" />
+    <Content Include="images\rc-beefhart.jpg" />
+    <Content Include="images\rc-best-years-of-our-lives.jpg" />
+    <Content Include="images\rc-bring.jpg" />
+    <Content Include="images\rc-buena.jpg" />
+    <Content Include="images\rc-paris.jpg" />
+    <Content Include="images\rc-prodigal.jpg" />
+    <Content Include="images\rc-purple.jpg" />
+    <Content Include="images\rc-rhythm.jpg" />
+    <Content Include="images\rc-the-great-escape.jpg" />
+    <Content Include="images\rem-automatic-for-the-people.jpg" />
+    <Content Include="images\responsive-background.jpg" />
+    <Content Include="images\rg-blues.jpg" />
+    <Content Include="images\rg-irish-tour.jpg" />
+    <Content Include="images\rg-live-in-europe.jpg" />
+    <Content Include="images\rg-muddy-waters.jpg" />
+    <Content Include="images\rg-rory-gallagher.jpg" />
+    <Content Include="images\richard-and-linda-thompson-i-want-to-see-the-bright-lights-tonight.jpg" />
+    <Content Include="images\robert-johnson-king-of-the-delta-blues.jpg" />
+    <Content Include="images\rod-stewart-every-picture-tells-a-story.jpg" />
+    <Content Include="images\roxy.jpg" />
+    <Content Include="images\santana-abraxas.jpg" />
+    <Content Include="images\sg-bermuda-triangle-exit.jpg" />
+    <Content Include="images\sg-how-to-play-blues-guitar.jpg" />
+    <Content Include="images\sgt-peppers.jpg" />
+    <Content Include="images\ship-arriving.jpg" />
+    <Content Include="images\sky.jpg" />
+    <Content Include="images\steely-dan-aja.jpg" />
+    <Content Include="images\steely-dan-cant-buy-a-thrill.jpg" />
+    <Content Include="images\stevie-wonder-innervisions.jpg" />
+    <Content Include="images\stevie-wonder-music-of-my-mind.jpg" />
+    <Content Include="images\stevie-wonder-songs-in-the-key-of-life.jpg" />
+    <Content Include="images\stevie-wonder-talking-book.jpg" />
+    <Content Include="images\tb-1.jpg" />
+    <Content Include="images\tb-a-hard-days-night.jpg" />
+    <Content Include="images\tb-abbey-road.jpg" />
+    <Content Include="images\tb-anthology-1.jpg" />
+    <Content Include="images\tb-beatles-for-sale.jpg" />
+    <Content Include="images\tb-image%2812%29.jpg" />
+    <Content Include="images\tb-Let-It-Be-Naked.jpg" />
+    <Content Include="images\tb-let-it-be.jpg" />
+    <Content Include="images\tb-magical-mystery-tour.jpg" />
+    <Content Include="images\tb-plastic-ono-band.jpg" />
+    <Content Include="images\tb-please-please-me.jpg" />
+    <Content Include="images\tb-Revolver.jpg" />
+    <Content Include="images\tb-rubber-soul.jpg" />
+    <Content Include="images\tb-sgt-peppers-lonely-hearts-club-band-2.jpg" />
+    <Content Include="images\tb-sgt-peppers-lonely-hearts-club-band.jpg" />
+    <Content Include="images\tb-white-album.jpg" />
+    <Content Include="images\tb-with-the-beatles.jpg" />
+    <Content Include="images\the-allman-brothers-at-fillmore-east.jpg" />
+    <Content Include="images\the-band-music-from-big-pink.jpg" />
+    <Content Include="images\the-band-the-band.jpg" />
+    <Content Include="images\the-beatles-revolver.jpg" />
+    <Content Include="images\the-beatles-rubber-soul.jpg" />
+    <Content Include="images\the-beatles-sgt-peppers-lonley.jpg" />
+    <Content Include="images\the-best-band.jpg" />
+    <Content Include="images\the-dingoes.jpg" />
+    <Content Include="images\the-rolling-stones-beggars-banquet.jpg" />
+    <Content Include="images\the-rolling-stones-exile-on-main-st.jpg" />
+    <Content Include="images\the-rolling-stones-let-it-bleed.jpg" />
+    <Content Include="images\the-rolling-stones-sticky-fingers.jpg" />
+    <Content Include="images\the-who-live-at-leeds.jpg" />
+    <Content Include="images\the-who-the-who-sell-out.jpg" />
+    <Content Include="images\the-who-tommy.jpg" />
+    <Content Include="images\the-who-whos-next.jpg" />
+    <Content Include="images\the-yellow-shark.jpg" />
+    <Content Include="images\them-or-us.jpg" />
+    <Content Include="images\times.jpg" />
+    <Content Include="images\tinseltown-rebellion.jpg" />
+    <Content Include="images\tm-groundhog-day.jpg" />
+    <Content Include="images\tm-matilda.jpg" />
+    <Content Include="images\tm-ready-for-this.jpg" />
+    <Content Include="images\tm-tim-minchin.jpg" />
+    <Content Include="images\todd-rungren-something_anything_.jpg" />
+    <Content Include="images\tr-alone-together.jpg" />
+    <Content Include="images\tr-arc-of-a-diver.jpg" />
+    <Content Include="images\tr-blind-faith.jpg" />
+    <Content Include="images\tr-far-from-home.jpg" />
+    <Content Include="images\tr-last-exit.jpg" />
+    <Content Include="images\tr-low-spark.jpg" />
+    <Content Include="images\tr-mr-fantasy.jpg" />
+    <Content Include="images\tr-shoot-out.jpg" />
+    <Content Include="images\tr-short-cut.jpg" />
+    <Content Include="images\tr-traffic.jpg" />
+    <Content Include="images\tr-whale-meat.jpg" />
+    <Content Include="images\tw-a-quick-one.jpg" />
+    <Content Include="images\tw-direct-hits.jpg" />
+    <Content Include="images\tw-face-dances.jpg" />
+    <Content Include="images\tw-join-together.jpg" />
+    <Content Include="images\tw-live-at-leeds.jpg" />
+    <Content Include="images\tw-quadrophenia-live.jpg" />
+    <Content Include="images\tw-quadrophenia.jpg" />
+    <Content Include="images\tw-sell-out.jpg" />
+    <Content Include="images\tw-tommy.jpg" />
+    <Content Include="images\tw-two-sides.jpg" />
+    <Content Include="images\tw-who-are-you.jpg" />
+    <Content Include="images\tw-wire-and-glass.jpg" />
+    <Content Include="images\u2-achtung-baby.jpg" />
+    <Content Include="images\u2-joshua-tree.jpg" />
+    <Content Include="images\uncle-meat.jpg" />
+    <Content Include="images\van-morrison-astral-weeks.jpg" />
+    <Content Include="images\van-morrison-moondance.jpg" />
+    <Content Include="images\vm-astral-weeks.jpg" />
+    <Content Include="images\vm-avalon-sunset.jpg" />
+    <Content Include="images\vm-blowin.jpg" />
+    <Content Include="images\vm-days-like-this.jpg" />
+    <Content Include="images\vm-down-the-road.jpg" />
+    <Content Include="images\vm-his-band.jpg" />
+    <Content Include="images\vm-wavelength.jpg" />
+    <Content Include="images\waka-jawaka.jpg" />
+    <Content Include="images\WartsUpYourNose.jpg" />
+    <Content Include="images\with-the-beatles.jpg" />
+    <Content Include="images\yes-big-generator.jpg" />
+    <Content Include="images\yes-close-to-the-edge.jpg" />
+    <Content Include="images\yes-drama.jpg" />
+    <Content Include="images\yes-fly-from-here.jpg" />
+    <Content Include="images\yes-fragile.jpg" />
+    <Content Include="images\yes-magnification.jpg" />
+    <Content Include="images\yes-talk.jpg" />
+    <Content Include="images\yes-time-and-a-word.jpg" />
+    <Content Include="images\yes-topographic.jpg" />
+    <Content Include="images\yes-yessongs.jpg" />
+    <Content Include="images\yes-yesterdays.jpg" />
+    <Content Include="images\zappa-in-new-york.jpg" />
+    <Content Include="Recorded.aspx" />
+    <Content Include="RecordList.aspx" />
+    <Content Include="RecordReviews.aspx" />
+    <Content Include="RecordView.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -155,6 +613,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\GetRecord.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
@@ -184,12 +643,28 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Search.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="Statistics.aspx" />
+    <Content Include="TotalCosts.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddArtist.aspx.cs">
+      <DependentUpon>AddArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddArtist.aspx.designer.cs">
+      <DependentUpon>AddArtist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddRecord.aspx.cs">
+      <DependentUpon>AddRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddRecord.aspx.designer.cs">
+      <DependentUpon>AddRecord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -199,6 +674,27 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ArtistList.aspx.cs">
+      <DependentUpon>ArtistList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtistList.aspx.designer.cs">
+      <DependentUpon>ArtistList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Browse.aspx.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Browse.aspx.designer.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckRecordReviews.aspx.cs">
+      <DependentUpon>CheckRecordReviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckRecordReviews.aspx.designer.cs">
+      <DependentUpon>CheckRecordReviews.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,10 +709,66 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeleteArtist.aspx.cs">
+      <DependentUpon>DeleteArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteArtist.aspx.designer.cs">
+      <DependentUpon>DeleteArtist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteRecord.aspx.cs">
+      <DependentUpon>DeleteRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteRecord.aspx.designer.cs">
+      <DependentUpon>DeleteRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditArtist.aspx.cs">
+      <DependentUpon>EditArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditArtist.aspx.designer.cs">
+      <DependentUpon>EditArtist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditRecord.aspx.cs">
+      <DependentUpon>EditRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditRecord.aspx.designer.cs">
+      <DependentUpon>EditRecord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recorded.aspx.cs">
+      <DependentUpon>Recorded.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recorded.aspx.designer.cs">
+      <DependentUpon>Recorded.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecordList.aspx.cs">
+      <DependentUpon>RecordList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecordList.aspx.designer.cs">
+      <DependentUpon>RecordList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecordReviews.aspx.cs">
+      <DependentUpon>RecordReviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecordReviews.aspx.designer.cs">
+      <DependentUpon>RecordReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecordView.aspx.cs">
+      <DependentUpon>RecordView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecordView.aspx.designer.cs">
+      <DependentUpon>RecordView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +789,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TotalCosts.aspx.cs">
+      <DependentUpon>TotalCosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TotalCosts.aspx.designer.cs">
+      <DependentUpon>TotalCosts.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
