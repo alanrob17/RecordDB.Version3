@@ -132,6 +132,15 @@ namespace RecordDAL.Repositories
             return records.ToList();
         }
 
+        public List<Record> SelectRecordReviews()
+        {
+            var sproc = "up_SelectRecordReviews";
+
+            var records = _db.GetBrowseData<Record, dynamic>(sproc, new { });
+
+            return records.ToList();
+        }
+
         public async Task<string> GetRecordedYearNumberAsync(int year)
         {
             var discs = 0;

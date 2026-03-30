@@ -53,7 +53,7 @@ namespace RecordTest
             // await SelectRecordsAsync();
             // await SelectRecordsShow();
             // await SelectRecordsByArtistIdAsync();
-            // await SelectRecordReviewsAsync();
+            await SelectRecordReviewsAsync();
             // await GetRecordedYearNumberAsync();
             // await NoRecordReviewsAsync();
             // ToShortDate();
@@ -62,7 +62,7 @@ namespace RecordTest
             // await InsertRecord2Async();
             // await UpdateRecordAsync();  
             // await UpdateRecord2Async();
-            await DeleteRecordAsync();  
+            // await DeleteRecordAsync();  
         }
 
         private static async Task DeleteRecordAsync()
