@@ -2,7 +2,7 @@
 <%@ Import Namespace="RecordDAL.Repositories" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
          <div class="row">
-    <div class="col-xs-12 col-md-6 center-block">
+    <div class="col-xs-12 col-md-6 mt-5 center-block">
         <h2 class="headerLabel">RecordDB Management System</h2>
           <h3 class="dateLabel"><asp:label ID="dateLabel" runat="server"></asp:label></h3>
           <h4 class="clockFace"><asp:TextBox ID="textClock" Width="120px" BorderStyle="None" ForeColor="#000099" Font="Bold" runat="server"></asp:TextBox></h4>    
@@ -81,31 +81,48 @@
                          <asp:RouteParameter Name="RecordId" RouteKey="rid" Type="Int32" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
+    <%: Scripts.Render("~/bundles/recorddb") %>
     <script type="text/javascript">
-        function ShowTime() {
-            
-            var dt = new Date();
-            var hours = dt.getHours();
-            var part = "am";
+    var yr = new Date();
+    var year = yr.getFullYear();
+
+    function ShowTime() {
+        var dt = new Date();
+        var hours = dt.getHours();
+
+        var part = "am";
+        if (hours >= 12) {
             if (hours > 12) {
                 hours -= 12;
-                part = "pm";
             }
-            var newtime = +hours + ":" + dt.getMinutes() + part;
-            if (dt.getMinutes() < 10) {
-                newtime = newtime.replace(":", ":0");
-            }
-            document.getElementById('<%= textClock.ClientID %>').value = newtime;
-            window.setTimeout("ShowTime()", 100);
-        }
-        function runCode() {
-            window.setTimeout("ShowTime()", 1000);
+            part = "pm";
         }
 
-        $('h2.headerLabel').css('text-align', 'center');
-        $('h3.dateLabel').css('text-align', 'center');
-        $('h4.clockFace').css('text-align', 'center');
-        $('#<%=textClock.ClientID %>').css('text-align', 'center');
-        runCode();
-    </script>
+        // Adjust for midnight
+        if (hours === 0) {
+            hours = 12;
+        }
+
+        var newtime = +hours + ":" + dt.getMinutes() + part;
+        if (dt.getMinutes() < 10) {
+            newtime = newtime.replace(":", ":0");
+        }
+        document.getElementById('<%= textClock.ClientID %>').value = newtime;
+        window.setTimeout(ShowTime, 100);
+    }
+
+    function runCode() {
+        window.setTimeout(ShowTime, 1000);
+    }
+
+    $(document).ready(function () {
+        $('div.row').hide().fadeIn(1000);
+        $('#<%=yearLabel.ClientID %>').html('&copy; Alan Robson ' + year);
+            $('h2.headerLabel').css('text-align', 'center');
+            $('h3.dateLabel').css('text-align', 'center');
+            $('h4.clockFace').css('text-align', 'center');
+            $('#<%=textClock.ClientID %>').css('text-align', 'center');
+            runCode();
+        });
+</script>
 </asp:Content>

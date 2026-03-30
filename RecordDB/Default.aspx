@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         th, td {
-          Font-Size:large;
+          Font-Size:small;
         }
     </style>
     <div class="row mt-5 mb-3">
@@ -253,6 +253,7 @@
 
         $(document).ready(function () {
             $('div.row').hide().fadeIn(1000);
+            $('#<%=yearLabel.ClientID %>').html('&copy; Alan Robson ' + year);
             $('h2.headerLabel').css('text-align', 'center');
             $('h3.dateLabel').css('text-align', 'center');
             $('h4.clockFace').css('text-align', 'center');
