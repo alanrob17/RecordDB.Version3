@@ -13,8 +13,9 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="~/Content/dropdowns.css" rel="stylesheet">
 </head>
 <body>
     <form runat="server">
@@ -36,7 +37,6 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" runat="server" href="~/">RecordDB</a>
@@ -47,8 +47,27 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Search">Search</a></li>
+                        <li class="nav-item dropdown rounded-3">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Maintenance</a>
+                            <ul class="dropdown-menu rounded-3 mx-0 border-0 shadow w-140px">
+                                <li><a class="dropdown-item" href="~/AddArtist"><span class="d-inline-block bg-success rounded-circle p-1"></span> Add New Artist</a></li>
+                                <li><a class="dropdown-item" href="~/EditArtist"><span class="d-inline-block bg-warning rounded-circle p-1"></span> Edit Artist</a></li>
+                                <li><a class="dropdown-item" href="~/DeleteArtist"><span class="d-inline-block bg-danger rounded-circle p-1"></span> Delete Artist</a></li>
+                                <li><hr class="dropdown-divider"/></li>
+                                <li><a class="dropdown-item" href="~/AddRecord"><span class="d-inline-block bg-success rounded-circle p-1"></span> Add New Record</a></li>
+                                <li><a class="dropdown-item" href="~/EditRecord"><span class="d-inline-block bg-warning rounded-circle p-1"></span> Edit Record</a></li>
+                                <li><a class="dropdown-item" href="~/DeleteRecord"><span class="d-inline-block bg-danger rounded-circle p-1"></span> Delete Record</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown rounded-3">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Statistics</a>
+                            <ul class="dropdown-menu rounded-3 mx-0 border-0 shadow w-140px">
+                                <li><a class="dropdown-item" href="~/TotalCosts"><span class="d-inline-block bg-warning rounded-circle p-1"></span> Total Artist Cost</a></li>
+                                <li><hr class="dropdown-divider"/></li>
+                                <li><a class="dropdown-item" href="~/Statistics"><span class="d-inline-block bg-success rounded-circle p-1"></span> Statistics</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
