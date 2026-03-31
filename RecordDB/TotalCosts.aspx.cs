@@ -11,7 +11,10 @@ namespace RecordDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var dtnow = DateTime.Now;
+            dateLabel.Text = dtnow.ToLongDateString();
 
+            pageHeaderLabel.Text = "Total discs & costs for each Artist";
         }
     }
 }

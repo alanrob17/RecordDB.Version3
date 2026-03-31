@@ -16,12 +16,14 @@ namespace RecordTest
     {
         private static readonly ArtistRepository _ar;
         private static readonly RecordRepository _rr;
+        private static readonly TotalRepository _tr;
 
         static Program()
         {
             var db = new DataAccess();
             _ar = new ArtistRepository(db);
             _rr = new RecordRepository(db);
+            _tr = new TotalRepository(db);
         }
 
         public static async Task Main(string[] args)
@@ -53,7 +55,7 @@ namespace RecordTest
             // await SelectRecordsAsync();
             // await SelectRecordsShow();
             // await SelectRecordsByArtistIdAsync();
-            await SelectRecordReviewsAsync();
+            // await SelectRecordReviewsAsync();
             // await GetRecordedYearNumberAsync();
             // await NoRecordReviewsAsync();
             // ToShortDate();
@@ -63,6 +65,19 @@ namespace RecordTest
             // await UpdateRecordAsync();  
             // await UpdateRecord2Async();
             // await DeleteRecordAsync();  
+
+            GetTotalCosts();
+        }
+
+        private static void GetTotalCosts()
+        {
+            var totals = _tr.GetTotalCosts();
+
+            foreach (var artist in totals)
+            {
+                Console.WriteLine($"{artist.Name}: {artist.TotalDiscs}: {artist.TotalCost:C}\n");
+            }
+
         }
 
         private static async Task DeleteRecordAsync()
