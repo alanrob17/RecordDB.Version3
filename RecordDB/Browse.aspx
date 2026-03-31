@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
     <div class="col-xs-10 center-block">
-        <h3 class="headerLabel"><asp:Label ID="pageHeaderLabel" runat="server"></asp:Label></h3>  
+        <h3 class="headerLabel mt-5 mb-4"><asp:Label ID="pageHeaderLabel" runat="server"></asp:Label></h3>  
         <div class="table-responsive">
          <asp:GridView ID="recordGridView" CssClass="table table-striped table-bordered" AutoGenerateColumns="False" AllowPaging="True" PageSize="30"  DataSourceID="recordDataSource" runat="server">
             <Columns>
