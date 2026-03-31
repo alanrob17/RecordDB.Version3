@@ -10,7 +10,7 @@ namespace RecordDAL.Repositories
     public interface IArtistRepository
     {
         Task<IEnumerable<Artist>> GetArtistsAsync();
-        Task<List<Artist>> GetArtists();
+        List<Artist> GetArtists();
         Task<List<Artist>> GetArtistListAsync();
         Task<List<Artist>> SelectAsync();
         Task<Artist> SelectAsync(int artistId);

@@ -16,6 +16,9 @@ namespace RecordDAL.Repositories
     {
         private readonly IDataAccess _db;
 
+        // Parameterless ctor required by ObjectDataSource
+        public ArtistRepository() : this(new DataAccess()) { }
+
         public ArtistRepository(IDataAccess db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
@@ -28,10 +31,10 @@ namespace RecordDAL.Repositories
         }
 
         // used for ObjectDataSource
-        public async Task<List<Artist>> GetArtists()
+        public List<Artist> GetArtists()
         {
             string sproc = "up_ArtistSelectFull";
-            IEnumerable<Artist> artists = await _db.GetData<Artist, dynamic>(sproc, new { });
+            IEnumerable<Artist> artists = _db.GetBrowseData<Artist, dynamic>(sproc, new { });
 
             return  artists.ToList();
         }
