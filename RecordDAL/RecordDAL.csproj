@@ -70,9 +70,11 @@
     <Compile Include="Repositories\ArtistRepository.cs" />
     <Compile Include="Repositories\IArtistRepository.cs" />
     <Compile Include="Repositories\IRecordRepository.cs" />
+    <Compile Include="Repositories\IStatisticRepository.cs" />
     <Compile Include="Repositories\ITotalRepository.cs" />
     <Compile Include="Repositories\RecordRepository.cs" />
     <Compile Include="Repositories\RepositoryInitialiser.cs" />
+    <Compile Include="Repositories\StatisticRepository.cs" />
     <Compile Include="Repositories\TotalRepository.cs" />
   </ItemGroup>
   <ItemGroup>

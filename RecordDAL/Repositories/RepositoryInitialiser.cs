@@ -11,12 +11,14 @@ namespace RecordDAL.Repositories
     {
         public static readonly ArtistRepository ArtistRepo;
         public static readonly RecordRepository RecordRepo;
+        public static readonly StatisticRepository StatisticRepo;
 
         static RepositoryInitialiser()
         {
             var db = new DataAccess();
             ArtistRepo = new ArtistRepository(db);
             RecordRepo = new RecordRepository(db);
+            StatisticRepo = new StatisticRepository(db);
         }
     }
 }
