@@ -11,7 +11,21 @@ namespace RecordDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var dtnow = DateTime.Now;
+            dateLabel.Text = dtnow.ToLongDateString();
+        }
 
+        protected void submitButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(yearTextBox.Text))
+            {
+                Response.Redirect("GetArtist/r" + yearTextBox.Text);
+            }
+            else
+            {
+                messageLabel.Text = "Please enter a Year value!";
+                messageAreaDiv.Visible = true;
+            }
         }
     }
 }
