@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\AppSettings.cs" />
+    <Compile Include="Components\DataConvert.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\IDataAccess.cs" />
     <Compile Include="DTOs\MissingReviewDto.cs" />
