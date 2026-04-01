@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" async="true" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditArtist.aspx.cs" Inherits="RecordDB.EditArtist" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="container mt-5 col-md-5">
+<div class="col-md-6 center-block">
+<div class="container mt-5 col-md-5">
     <h3 class="headerLabel mb-4">Update Artist</h3>
         <div class="row">
             <div class="mb-3">
@@ -67,5 +69,7 @@
                 <p>Return to the <a href="/default">Main Menu</a></p>
             </footer>
         </div>    
+</div>
+</div>
 </div>
 </asp:Content>
