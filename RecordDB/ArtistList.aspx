@@ -27,4 +27,10 @@
     </div>
     </div>
     <asp:ObjectDataSource ID="artistObjectDataSource" TypeName="RecordDAL.Repositories.ArtistRepository" SelectMethod="GetArtists" runat="server"></asp:ObjectDataSource>   
+    <div class="row">
+        <footer>
+            <hr />
+            <p>Return to the <a href="/default">Main Menu</a></p>
+        </footer>
+    </div>        
 </asp:Content>

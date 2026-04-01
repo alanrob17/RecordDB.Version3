@@ -34,4 +34,10 @@
     </div>
     </div>
     </div>
+    <div class="row">
+        <footer>
+            <hr />
+            <p>Return to the <a href="/default">Main Menu</a></p>
+        </footer>
+    </div>        
 </asp:Content>

@@ -134,7 +134,7 @@ namespace RecordDAL.Repositories
 
         public List<Record> SelectRecordReviews()
         {
-            var sproc = "up_SelectRecordReviews";
+            var sproc = "up_SelectRecordReviews2";
 
             var records = _db.GetBrowseData<Record, dynamic>(sproc, new { });
 
