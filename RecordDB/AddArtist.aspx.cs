@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RecordDAL.Repositories;
 
 namespace RecordDB
 {
@@ -28,8 +29,7 @@ namespace RecordDB
             var biography = string.Empty;
             if (!string.IsNullOrEmpty(this.lastNameTextBox.Text))
             {
-
-                var artistData = new RecordDAL.Repositories.ArtistRepository();
+                var artistData = new ArtistRepository();
                 var artist = new Artist
                 {
                     ArtistId = 0,

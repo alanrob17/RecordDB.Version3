@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RecordDAL.Repositories;
 
 namespace RecordDB
 {
@@ -28,7 +29,7 @@ namespace RecordDB
 
             editPanel.Visible = false;
 
-            var artistData = new RecordDAL.Repositories.ArtistRepository();
+            var artistData = new ArtistRepository();
             var artists = await artistData.GetArtistListAsync();
             artistDropDownList.DataSource = artists;
             artistDropDownList.DataTextField = "name";
@@ -49,7 +50,7 @@ namespace RecordDB
             if (artistId > 0)
             {
                 editPanel.Visible = true;
-                var artistData = new RecordDAL.Repositories.ArtistRepository();
+                var artistData = new ArtistRepository();
 
                 var artist = await artistData.SelectAsync(int.Parse(artistDropDownList.SelectedItem.Value));
 
@@ -71,7 +72,7 @@ namespace RecordDB
 
         private async Task SubmitAsync()
         {
-            var artistData = new RecordDAL.Repositories.ArtistRepository();
+            var artistData = new ArtistRepository();
             var artist = new Artist
             {
                 // set member properties
